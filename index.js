@@ -1,7 +1,6 @@
 function changeColor() {
   let bcg = document.body.style.backgroundColor;
 
-  document.body.style.backgroundColor = localStorage.getItem("changeColor");
   if (bcg == "") {
     document.body.style.backgroundColor = "black";
   } else if (bcg == "black") {
@@ -11,9 +10,10 @@ function changeColor() {
   } else if (bcg == "yellow") {
     document.body.style.backgroundColor = "";
   }
-
+  
   let clr = document.getElementById("change").style.color;
   let bcg2 = document.getElementById("change").style.backgroundColor;
+  
   if (clr == "" && bcg2 == "") {
     document.getElementById("change").style.color = "red";
     document.getElementById("change").style.backgroundColor = "white";
@@ -27,4 +27,8 @@ function changeColor() {
     document.getElementById("change").style.color = "";
     document.getElementById("change").style.backgroundColor = "";
   }
+
+  localStorage.setItem("BodyBackgraundColor", document.body.style.backgroundColor);
+  localStorage.setItem("ButtonColor", document.getElementById("change").style.color);
+  localStorage.setItem("ButtonBackgraundColor", document.getElementById("change").style.backgroundColor);
 }
